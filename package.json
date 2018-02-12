@@ -1,0 +1,14 @@
+{
+  "name": "hangman-game",
+  "version": "0.0.1",
+  "description": "hangman",
+  "main": "hang.js",
+  "scripts": {
+    "test": "hang"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.8"
+  }
+}
