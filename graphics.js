@@ -37,6 +37,7 @@ function showMenu (a) {
 }
 
 function showPhase6 (a) {
+  console.log("\n");
   console.log("   ____");
   console.log("  |    |");
   console.log("  |    o");
@@ -50,6 +51,7 @@ function showPhase6 (a) {
 }
 
 function showPhase5 (a) {
+  console.log("\n");
   console.log("   ____");
   console.log("  |    |");
   console.log("  |    o");
@@ -63,6 +65,7 @@ function showPhase5 (a) {
 }
 
 function showPhase4 (a) {
+  console.log("\n");
   console.log("   ____");
   console.log("  |    |");
   console.log("  |    o");
@@ -76,6 +79,7 @@ function showPhase4 (a) {
 }
 
 function showPhase3 (a) {
+  console.log("\n");
   console.log("   ____");
   console.log("  |    |");
   console.log("  |    o");
@@ -89,6 +93,7 @@ function showPhase3 (a) {
 }
 
 function showPhase2 (a) {
+  console.log("\n");
   console.log("   ____");
   console.log("  |    |");
   console.log("  |    o");
@@ -102,6 +107,7 @@ function showPhase2 (a) {
 }
 
 function showPhase1 (a) {
+  console.log("\n");
   console.log("   ____");
   console.log("  |    |");
   console.log("  |    o");
@@ -114,29 +120,31 @@ function showPhase1 (a) {
   console.log("|__________|");
 }
 
-function showPhase0 (a) {
-  console.log("   ____");
-  console.log("  |    |");
-  console.log("  |");
-  console.log("  |");
-  console.log("  |");
-  console.log("  |");
-  console.log(" _|_");
-  console.log("|   |______");
-  console.log("|          |");
-  console.log("|__________|");
+let showPhase0 = 
+[[" ", " ", " ", "_", "_", "_", "_", " ", " ", " ", " ", " "], 
+[" ", " ", "|", " ", " ", " ", " ", "|", " ", " ", " ", " "], 
+[" ", " ", "|", " ", " ", " ", " ", " ", " ", " ", " ", " "], 
+[" ", " ", "|", " ", " ", " ", " ", " ", " ", " ", " ", " "], 
+[" ", " ", "|", " ", " ", " ", " ", " ", " ", " ", " ", " "], 
+[" ", " ", "|", " ", " ", " ", " ", " ", " ", " ", " ", " "], 
+[" ", "_", "|", "_", " ", " ", " ", " ", " ", " ", " ", " "], 
+["|", " ", " ", " ", "|", "_", "_", "_", "_", "_", "_", " "], 
+["|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|"], 
+["|", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "|"]];
+
+function showMatrix(phase) {
+  for (i=0; i < showPhase0.length; i++) {
+    var row = "";
+    for (var j=0; j < showPhase0[i].length; j++) {
+      row += showPhase0[i][j]
+    }
+    console.log(row);
+  }
 }
-
-
 
 module.exports = {
   logo: showLogo,
   menu: showMenu,
-  phase6: showPhase6,
-  phase5: showPhase5,
-  phase4: showPhase4,
-  phase3: showPhase3,
-  phase2: showPhase2,
-  phase1: showPhase1,
-  phase0: showPhase0,
+  matrix: showMatrix,
+  phase1: showPhase1
 };
