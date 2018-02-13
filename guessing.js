@@ -1,7 +1,7 @@
 const readlineSync = require('readline-sync');
-var word = 'bash script boys feat lady java';
+var word = 'borsó főzelék';
 // var letter = readlineSync.question('Enter letter:');
-var errors = 0;
+var lives = 6;
 var correctLetters = 0;
 var spaceCounter = 0;
 var checkChange = false;
@@ -18,6 +18,7 @@ function setArray () {
       wordArray.push('_');
     }
   }
+  logArray(wordArray);
 }
 
 function checkRepetition (array, letter) {
@@ -40,7 +41,7 @@ function check (letter) {
       }
     }
     if (checkChange === false) {
-      errors++;
+      lives--;
       wrongLetters.push(letter);
     } else {
       goodLetters.push(letter);
@@ -51,17 +52,18 @@ function check (letter) {
 
 function logArray (array) {
   var row = ' ';
-  for (var i = 0; i < array.length; i++) {
-    row += array[i] + ' ';
+  for (var j = 0; j < array.length; j++) {
+    row += array[j] + ' ';
   }
   console.log(row);
 }
 
 function gameLoop () {
+  setArray();
   while (correctLetters < word.length - spaceCounter) {
     var letter = readlineSync.question('Enter letter:');
     console.log('\x1Bc');
-    console.log('Please do not enter a letter more than once.');
+    console.log('Please do not enter more than one letter at once.');
     check(letter);
     console.log('The expression to be guessed:');
     logArray(wordArray);
@@ -69,16 +71,19 @@ function gameLoop () {
     logArray(goodLetters);
     console.log('Incorrect letters: ');
     logArray(wrongLetters);
-    // console.log(letter + ' ');
-    // console.log(word.length);
-    // console.log(spaceCounter);
-    console.log(errors);
-    console.log(correctLetters);
+    console.log('Number of lives: ' + lives);
+    console.log('Number of correct letters: ' + correctLetters);
+    if (correctLetters === word.length - spaceCounter) {
+      console.log('You have won.');
+      break;
+    }
+    if (lives === 0) {
+      console.log('YOU DIED');
+      break;
+    }
   }
-  console.log('You have won!');
 }
 
-setArray();
 gameLoop();
 
 /*
