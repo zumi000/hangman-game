@@ -76,25 +76,25 @@ function print(tomb) {
 
 function showLives(lives) {
 switch (lives) {
-  case '6': showMatrix(showPhase);
+  case 6: showMatrix(showPhase);
     break;
-  case '5': changeChar(showPhase, 8, 3, 'o');
+  case 5: changeChar(showPhase, 8, 3, 'o');
     print(showPhase);
     break;
-  case '4':
+  case 4:
     changeChar(showPhase, 8, 3, 'o');
     changeChar(showPhase, 8, 4, '|');
     changeChar(showPhase, 8, 5, '|');
     print(showPhase);
     break;
-  case '3':
+  case 3:
     changeChar(showPhase, 8, 3, 'o');
     changeChar(showPhase, 8, 4, '|');
     changeChar(showPhase, 8, 5, '|');
     changeChar(showPhase, 7, 4, '/');
     print(showPhase);
     break;
-  case '2':
+  case 2:
     changeChar(showPhase, 8, 3, 'o');
     changeChar(showPhase, 8, 4, '|');
     changeChar(showPhase, 8, 5, '|');
@@ -102,7 +102,7 @@ switch (lives) {
     changeChar(showPhase, 9, 4, '\\');
     print(showPhase);
     break;
-  case '1':
+  case 1:
     changeChar(showPhase, 8, 3, 'o');
     changeChar(showPhase, 8, 4, '|');
     changeChar(showPhase, 8, 5, '|');
@@ -111,7 +111,7 @@ switch (lives) {
     changeChar(showPhase, 7, 6, '/');
     print(showPhase);
     break;
-  case '0':
+  case 0:
     changeChar(showPhase, 8, 3, 'o');
     changeChar(showPhase, 8, 4, '|');
     changeChar(showPhase, 8, 5, '|');

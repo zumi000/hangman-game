@@ -21,6 +21,7 @@ function categorySelect () {
       break;
   }
 }
+
 module.exports = {
   categorySelect: categorySelect
 };

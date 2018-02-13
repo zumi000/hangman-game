@@ -1,9 +1,13 @@
 const readlineSync = require('readline-sync');
-show = require('./graphics');
-guess = require('./guessing');
+const show = require('./graphics');
+const guess = require('./guessing');
+const select = require('./hangmantest');
+
+
 
 console.log('\x1Bc');
-playerName = readlineSync.question('Kérlek, add meg a nevedet: ');
+let playerName = readlineSync.question('Kérlek, add meg a nevedet: ');
+enterMenu(playerName);
 function enterMenu(playerName) {
   console.log('\x1Bc');
   show.logo();
@@ -18,24 +22,22 @@ function mainMenu (playerName) {
     case '1':
       //STARTJATEK
       console.log('\x1Bc');
-      show.logo();
-      console.log(playerName + " játékban");
-      show.phase0(playerName);
-      guess.set();
-      guess.loop ();
+      guess.loop (word);
       break;
     case '2':
       //TEMAKOR
-      show.phase0(playerName);
+      console.log('\x1Bc');
+      word = select.categorySelect();
+      enterMenu(playerName);
+      //console.log(word);
       break;
     case '3':
       //NEHEZSEG
-      show.phase1(playerName);
-      show.matrix();
+      
       break;
     case '4':
       //SCORE
-      show.phase3(playerName);      
+         
       break;
     case '5':
       console.log("Köszönjük, hogy velünk játszottál, várunk vissza");
@@ -43,10 +45,6 @@ function mainMenu (playerName) {
       wrongMenu();
       break;
 }
-}
-
-function showQuiz() {
-  console.log(quiz);
 }
 
 function wrongMenu() {
@@ -57,5 +55,3 @@ function wrongMenu() {
   console.log("Nincs ilyen menüpont");
   mainMenu(playerName);
 }
-
-enterMenu(playerName);
