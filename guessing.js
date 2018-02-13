@@ -2,8 +2,7 @@ const readlineSync = require('readline-sync');
 const show = require('./graphics');
 // var word = 'borsó főzelék';
 // var letter = readlineSync.question('Enter letter:');
-var word = '';
-var lives = 8;
+var lives = 6;
 var correctLetters = 0;
 var spaceCounter = 0;
 var checkChange = false;
@@ -33,7 +32,7 @@ function checkRepetition (array, letter) {
   return rep;
 }
 
-function check (letter) {
+function check (word, letter) {
   if (!checkRepetition(goodLetters, letter) && !checkRepetition(wrongLetters, letter)) {
     for (var i = 0; i < word.length; i++) {
       if (word.charAt(i) === letter) {
@@ -69,7 +68,7 @@ function gameLoop (word) {
     var letter = readlineSync.question('\nEnter letter:');
     console.log('\x1Bc');
     console.log('Please do not enter more than one letter at once.');
-    check(letter);
+    check(word, letter);
     console.log('The expression to be guessed:\n');
     logArray(wordArray);
     console.log('\nCorrect letters: ');
