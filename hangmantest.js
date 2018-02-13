@@ -1,22 +1,26 @@
-const readlineSync = require('readline-sync');var playerName = 'test';
-require('./hangmansource.js');
-/*
-var word = allatok[Math.floor(Math.random() * allatok.length)];
-console.log(word);
-*/
-var menu = readlineSync.question('válassz témát: ');
-switch (menu) {
- case '1':
-   var word = film[Math.floor(Math.random() * film.length)];
-   console.log(word);
-   break;
- case '2':
-   var word = allatok[Math.floor(Math.random() * allatok.length)];
-   console.log(word);
-   break;
- case '3':
-   var word = autobrandek[Math.floor(Math.random() * autobrandek.length)];
-   console.log(word);
-   break;
+const readlineSync = require('readline-sync');
+
+film = ['bones', 'anal intruder', 'psych', 'big bang theory', 'breaking bad', 'modern family', 'game of thrones', 'dexter'];
+animals = ['great white shark', 'butterfly', 'grizzly bear', 'fallow deer'];
+manufacturers = ['ford', 'mercedes benz', 'jaguar'];
+
+function categorySelect () {
+  console.log('1. Film Titles');
+  console.log('2. Animals');
+  console.log('3. Car Manufacturers');
+  var categoryMenu = readlineSync.question('Chose category: ');
+  switch (categoryMenu) {
+    case '1':
+      return film[Math.floor(Math.random() * film.length)];
+      break;
+    case '2':
+      return manufacturers[Math.floor(Math.random() * manufacturers.length)];
+      break;
+    case '3':
+      return manufacturers[Math.floor(Math.random() * manufacturers.length)];
+      break;
+  }
 }
-console.log(word);
+module.exports = {
+  categorySelect: categorySelect
+};
