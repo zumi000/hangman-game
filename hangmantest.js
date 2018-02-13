@@ -28,6 +28,8 @@ function categorySelect () {
     case '5':
       return actors[Math.floor(Math.random() * actors.length)];
       break;
+    default:
+      break;
   }
 }
 module.exports = {
