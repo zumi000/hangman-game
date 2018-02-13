@@ -63,6 +63,39 @@ function changeChar(tomb, i, j, char) {
   return tomb;
 }
 
+function newState (matrix, lives) {
+  switch (lives) {
+    case 0:
+      console.log("died");
+      break;
+    case 1:
+      matrix = changeChar(matrix, 9, 6, '\\');
+      break;
+    case 2:
+      matrix = changeChar(matrix, 7, 6, '/');
+      break;
+    case 3:
+      matrix = changeChar(matrix, 9, 4, '\\');
+      break;
+    case 4:
+      matrix = changeChar(matrix, 7, 4, '/');
+      break;
+    case 5:
+      matrix = changeChar(matrix, 8, 5, '|');
+      break;
+    case 6:
+      matrix = changeChar(matrix, 8, 4, '|');
+      break;
+    case 7:
+      matrix = changeChar(matrix, 8, 3, 'o');
+      break;
+    case 8:
+
+      break;
+  }
+  return matrix;
+}
+
 function print(tomb) {
   for (i = 0; i < tomb.length; i++) {
     var row = '';
@@ -73,62 +106,34 @@ function print(tomb) {
   }
 }
 
+/*print(newState(showPhase, 8));
+print(newState(showPhase, 7));
+print(newState(showPhase, 6));
+print(newState(showPhase, 5));
+print(newState(showPhase, 4));
+print(newState(showPhase, 3));
+print(newState(showPhase, 2));
+print(newState(showPhase, 1));
+print(newState(showPhase, 0));
+*/
 
-function showLives(lives) {
+/* function showLives(lives) {
 switch (lives) {
   case 6: showMatrix(showPhase);
     break;
-  case 5: changeChar(showPhase, 8, 3, 'o');
+  case 5: 
+  changeChar(showPhase, 8, 3, 'o');
     print(showPhase);
     break;
-  case 4:
-    changeChar(showPhase, 8, 3, 'o');
-    changeChar(showPhase, 8, 4, '|');
-    changeChar(showPhase, 8, 5, '|');
-    print(showPhase);
-    break;
-  case 3:
-    changeChar(showPhase, 8, 3, 'o');
-    changeChar(showPhase, 8, 4, '|');
-    changeChar(showPhase, 8, 5, '|');
-    changeChar(showPhase, 7, 4, '/');
-    print(showPhase);
-    break;
-  case 2:
-    changeChar(showPhase, 8, 3, 'o');
-    changeChar(showPhase, 8, 4, '|');
-    changeChar(showPhase, 8, 5, '|');
-    changeChar(showPhase, 7, 4, '/');
-    changeChar(showPhase, 9, 4, '\\');
-    print(showPhase);
-    break;
-  case 1:
-    changeChar(showPhase, 8, 3, 'o');
-    changeChar(showPhase, 8, 4, '|');
-    changeChar(showPhase, 8, 5, '|');
-    changeChar(showPhase, 7, 4, '/');
-    changeChar(showPhase, 9, 4, '\\');
-    changeChar(showPhase, 7, 6, '/');
-    print(showPhase);
-    break;
-  case 0:
-    changeChar(showPhase, 8, 3, 'o');
-    changeChar(showPhase, 8, 4, '|');
-    changeChar(showPhase, 8, 5, '|');
-    changeChar(showPhase, 7, 4, '/');
-    changeChar(showPhase, 9, 4, '\\');
-    changeChar(showPhase, 7, 6, '/');
-    changeChar(showPhase, 9, 6, '\\');
-    print(showPhase);
-    break;
-}
-}
+*/
+
 
 module.exports = {
   logo: showLogo,
   menu: showMenu,
   matrix: showMatrix,
-  lives: showLives
+  state: newState
 };
 
 
+// init state = show.matrix(showPhase);
