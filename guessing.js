@@ -107,6 +107,14 @@ function gameLoop (word) {
       break;
     }
   }
+  lives = 8;
+  correctLetters = 0;
+  spaceCounter = 0;
+  checkChange = false;
+  wordArray = [];
+  goodLetters = [];
+  wrongLetters = [];
+  show.state(show.picture, lives);
 }
 // gameLoop();
 
