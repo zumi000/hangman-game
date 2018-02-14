@@ -36,7 +36,7 @@ function showMenu(a) {
   console.log('6: ...optionals...');
 }
 
-let showPhase =
+let picture =
   [[' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' '],
   [' ', ' ', '|', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' '],
   [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
@@ -48,11 +48,11 @@ let showPhase =
   ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'],
   ['|', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '|']];
 
-function showMatrix(phase) {
-  for (i = 0; i < showPhase.length; i++) {
+function init (tomb) {
+  for (i = 0; i < picture.length; i++) {
     var row = '';
-    for (var j = 0; j < showPhase[i].length; j++) {
-      row += showPhase[i][j]
+    for (var j = 0; j < picture[i].length; j++) {
+      row += picture[i][j]
     }
     console.log(row);
   }
@@ -90,7 +90,7 @@ function newState (matrix, lives) {
       matrix = changeChar(matrix, 8, 3, 'o');
       break;
     case 8:
-
+      matrix = changeChar(matrix, 11, 3, 'q');
       break;
   }
   return matrix;
@@ -106,15 +106,15 @@ function print(tomb) {
   }
 }
 
-/*print(newState(showPhase, 8));
-print(newState(showPhase, 7));
-print(newState(showPhase, 6));
-print(newState(showPhase, 5));
-print(newState(showPhase, 4));
-print(newState(showPhase, 3));
-print(newState(showPhase, 2));
-print(newState(showPhase, 1));
-print(newState(showPhase, 0));
+/*print(newState(picture, 8));
+print(newState(picture, 7));
+print(newState(picture, 6));
+print(newState(picture, 5));
+print(newState(picture, 4));
+print(newState(picture, 3));
+print(newState(picture, 2));
+print(newState(picture, 1));
+print(newState(picture, 0));
 */
 
 /* function showLives(lives) {
@@ -131,9 +131,11 @@ switch (lives) {
 module.exports = {
   logo: showLogo,
   menu: showMenu,
-  matrix: showMatrix,
-  state: newState
+  init: init,
+  state: newState,
+  picture: picture
 };
+
 
 
 // init state = show.matrix(showPhase);
