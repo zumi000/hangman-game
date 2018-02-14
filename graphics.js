@@ -5,6 +5,7 @@ vagy
 console.log('\x1Bc');
 */
 function showLogo(a) {
+  console.log('\x1Bc');
   console.log('88');
   console.log('88');
   console.log('88');
@@ -26,14 +27,12 @@ function showLogo(a) {
 module.exports = showLogo;
 
 function showMenu(a) {
-  console.log('\n');
-  console.log('Az alábbi menüpontok közül választhatsz a hozzá tartozó szám megadásával: ')
-  console.log('1: Játék indítása');
-  console.log('2: Témakör módosítása <jelenlegi: TEMAKOR>');
-  console.log('3: Nehézségi fogozat módosítása <jelenlegi: NEHEZSEG>');
-  console.log('4: Legjobb eredmények megtekintése');
-  console.log('5: Kilépés a játékból');
-  console.log('6: ...optionals...');
+  console.log('You can select a menu with typing its number: \n');
+  console.log('1: Start game');
+  console.log('2: Modify category');
+  console.log('3: Modify difficulty');
+  console.log('4: Check scoreboard');
+  console.log('5: Exit game');
 }
 
 let picture =
@@ -90,7 +89,7 @@ function newState (matrix, lives) {
       matrix = changeChar(matrix, 8, 3, 'o');
       break;
     case 8:
-      matrix = changeChar(matrix, 11, 3, 'q');
+      matrix = changeChar(matrix, 11, 3, ' ');
       break;
   }
   return matrix;
