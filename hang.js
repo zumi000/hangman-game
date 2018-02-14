@@ -25,6 +25,11 @@ function mainMenu (playerName) {
       // start game
       console.log('\x1Bc');
       guess.loop (word);
+      if (readlineSync.keyInYN('Do you want to start another game?',)) {
+      enterMenu(playerName);
+      }
+      console.log("Thank you for choosing us");
+      process.exit();
       break;
     case '2':
       // modify category
@@ -45,6 +50,7 @@ function mainMenu (playerName) {
       break;
     case '5':
       console.log("Thank you for choosing us");
+      process.exit();
     default:
       wrongMenu();
       break;
