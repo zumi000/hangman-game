@@ -85,7 +85,7 @@ function gameLoop (word) {
   print(show.state(show.picture, lives));
   setArray(word);
   while (correctLetters < word.length - spaceCounter) {
-    var letter = readlineSync.question('\nEnter letter:');
+    var letter = readlineSync.keyIn('\nEnter letter: ', {limit: '$<a-z>'});
     console.log('\x1Bc');
     console.log('Please do not enter more than one letter at once.');
     check(word, letter);
