@@ -1,15 +1,15 @@
 const readlineSync = require('readline-sync');
 let imHard = 0;
-let film = ['Anal Intruder', 'Big Bang Theory', 'Breaking Bad', 'Game of Thrones'];
-let harderFilm = ['Bones', 'Psych', 'Modern Family', 'Dexter'];
-let animals = ['great white shark', 'butterfly', 'grizzly bear', 'fallow deer'];
-let harderAnimals = ['great white shark', 'butterfly', 'grizzly bear', 'fallow deer'];
-let manufacturers = ['Ford', 'Mercedes Benz', 'Jaguar', 'Caldwell Vale', 'Sichuan Tengzhong', 'Lamborghini', 'Land Rover'];
-let harderManufacturers = ['Ford', 'Mercedes Benz', 'Jaguar', 'Caldwell Vale', 'Sichuan Tengzhong', 'Lamborghini', 'Land Rover'];
+let film = ['Anal Intruder', 'Big Bang Theory', 'Breaking Bad', 'Game of Thrones', 'The Godfather', 'The Shawshank Redemption', 'Star Wars'];
+let harderFilm = ['Bones', 'Psych', 'Modern Family', 'Dexter', 'Casablanca', 'Doctor Zhivago', 'Rocky'];
+let animals = ['Great White Shark', 'Bavarian Mountain Hound', 'Grizzly Bear', 'Fallow Deer', 'Arctic Fox', 'Blue Whale'];
+let harderAnimals = ['Ant', 'Fox', 'Baboon', 'Axolotl', 'Aye Aye', 'Angelfish', 'Bison'];
+let manufacturers = ['Volkswagen', 'Mercedes Benz', 'Alfa Romeo', 'Aston Martin', 'Sichuan Tengzhong', 'Lamborghini', 'Land Rover'];
+let harderManufacturers = ['Ford', 'McLaren', 'Jaguar', 'Caldwell Vale', 'Kia', 'Lexus', 'Peugot'];
 let musicans = ['Jimi Hendrix', 'Elvis Presley', 'David Bowie', 'Johnny Cash', 'Micheal Jackson', 'Billie Holiday', 'Amy Winehouse'];
-let harderMusicans = ['Jimi Hendrix', 'Elvis Presley', 'David Bowie', 'Johnny Cash', 'Micheal Jackson', 'Billie Holiday', 'Amy Winehouse'];
-let actors = ['Jack Nicholson', 'Al Pacino', 'Dustin Hoffman', 'Meryl Streep', 'Julia Roberts', 'Nicole Kidman'];
-let harderActors = ['Jack Nicholson', 'Al Pacino', 'Dustin Hoffman', 'Meryl Streep', 'Julia Roberts', 'Nicole Kidman'];
+let harderMusicans = ['Stu Larsen', 'Amos Lee', 'Ashleigh Mannix', 'Bob Evans', 'Kate Miller', 'Lisa Tingle', 'Maarko Saaresto'];
+let actors = ['Jack Nicholson', 'Al Pacino', 'Dustin Hoffman', 'Meryl Streep', 'Julia Roberts', 'Nicole Kidman', 'Marlon Brando'];
+let harderActors = ['Domhnall Gleeson', 'Liev Schreiber', 'Peter Sarsgaard', 'Michael Stuhlbarg', 'Brendan Gleeson', 'Elijah Wood', 'Andy Serkis'];
 
 function categorySelect (imHard) {
   if (imHard === 0) {
@@ -18,7 +18,7 @@ function categorySelect (imHard) {
     console.log('3. Car Manufacturers');
     console.log('4. Musicans');
     console.log('5. Actors');
-    var categoryMenu = readlineSync.question('Chose from category: ');
+    var categoryMenu = readlineSync.question('Chose from EAZY categories: ');
     switch (categoryMenu) {
       case '1':
         return film[Math.floor(Math.random() * film.length)];
@@ -39,7 +39,7 @@ function categorySelect (imHard) {
     console.log('3. Car Manufacturers');
     console.log('4. Musicans');
     console.log('5. Actors');
-    var categoryMenu1 = readlineSync.question('Chose from advanced category: ');
+    var categoryMenu1 = readlineSync.question('Chose from ADVANCED categories: ');
     switch (categoryMenu1) {
       case '1':
         return harderFilm[Math.floor(Math.random() * harderFilm.length)];
