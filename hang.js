@@ -25,7 +25,7 @@ function mainMenu (playerName) {
       // start game
       console.log('\x1Bc');
       guess.loop (word);
-      if (readlineSync.keyInYN('Do you want to start another game?',)) {
+      if (readlineSync.keyInYN('Do you want to start another game?')) {
       enterMenu(playerName);
       }
       console.log("Thank you for choosing us");
