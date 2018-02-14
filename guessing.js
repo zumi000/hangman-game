@@ -40,11 +40,23 @@ function checkRepetition (array, letter) {
   return rep;
 }
 
+function isUpperCase (char) {
+  if (char === char.toUpperCase()) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function check (word, letter) {
   if (!checkRepetition(goodLetters, letter) && !checkRepetition(wrongLetters, letter)) {
     for (var i = 0; i < word.length; i++) {
-      if (word.charAt(i) === letter) {
-        wordArray[i] = letter;
+      if (word.charAt(i) === letter || word.charAt(i) === letter.toUpperCase()) {
+        if (isUpperCase(word.charAt(i))) {
+          wordArray[i] = letter.toUpperCase();
+        } else {
+          wordArray[i] = letter;
+        }
         checkChange = true;
         correctLetters++;
       }
