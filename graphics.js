@@ -82,13 +82,13 @@ function newState (state, lives) {
       state = changeChar(state, 7, 4, '/');
       break;
     case 5:
-      state = changeChar(state, 8, 5, '|');
+      state = getInitState(state, 8, 5, '|');
       break;
     case 6:
-      state = changeChar(state, 8, 4, '|');
+      state = getInitState(state, 8, 4, '|');
       break;
     case 7:
-      state = changeChar(state, 8, 3, 'o');
+      state = getInitState(state, 8, 3, 'o');
       break;
     case 8:
       state = getInitState();
