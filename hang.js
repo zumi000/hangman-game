@@ -4,7 +4,7 @@ const guess = require('./guessing');
 const select = require('./hangmantest');
 
 
-
+let expPoints = 0;
 console.log('\x1Bc');
 let playerName = readlineSync.question('Kérlek, add meg a nevedet: ');
 enterMenu(playerName);
@@ -27,7 +27,13 @@ function mainMenu (playerName) {
     case '2':
       //TEMAKOR
       console.log('\x1Bc');
-      word = select.categorySelect();
+      if (expPoints < '3') {
+        console.log('hardban vagyok');
+        word = select.categorySelect();
+      } else {
+        console.log('itt vagyok');
+        word = select.harderCategorySelect();
+      }
       enterMenu(playerName);
       //console.log(word);
       break;
@@ -40,7 +46,7 @@ function mainMenu (playerName) {
          
       break;
     case '5':
-      console.log("Köszönjük, hogy velünk játszottál, várunk vissza");
+      console.log('Köszönjük, hogy velünk játszottál, várunk vissza');
     default:
       wrongMenu();
       break;
