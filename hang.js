@@ -27,6 +27,11 @@ function mainMenu (playerName) {
       // start game
       console.log('\x1Bc');
       guess.loop (word);
+      if (readlineSync.keyInYN('Do you want to start another game?',)) {
+      enterMenu(playerName);
+      }
+      console.log("Thank you for choosing us");
+      process.exit();
       break;
     case '2':
       // modify category
@@ -46,11 +51,11 @@ function mainMenu (playerName) {
          
       break;
     case '5':
-<<<<<<< HEAD
       console.log("Köszönjük, hogy velünk játszottál, várunk vissza");
-=======
+
       console.log("Thank you for choosing us");
->>>>>>> fb433dbea5c9a247d053c54b059fbb36e4634c26
+      process.exit();
+
     default:
       wrongMenu();
       break;
