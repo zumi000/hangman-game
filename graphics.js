@@ -35,17 +35,19 @@ function showMenu(a) {
   console.log('5: Exit game');
 }
 
-let picture =
-  [[' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' '],
-  [' ', ' ', '|', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' '],
-  [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-  [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-  [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-  [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-  [' ', '_', '|', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-  ['|', ' ', ' ', ' ', '|', ' ', '_', '_', '_', '_', '_', ' '],
-  ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'],
-  ['|', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '|']];
+function getInitState() {
+  return [[' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', '|', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' '],
+    [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', '_', '|', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    ['|', ' ', ' ', ' ', '|', '_', '_', '_', '_', '_', '_', ' '],
+    ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'],
+    ['|', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '|']];
+}
+var state = getInitState();
 
 function init (tomb) {
   for (i = 0; i < picture.length; i++) {
@@ -57,42 +59,42 @@ function init (tomb) {
   }
 }
 
-function changeChar(tomb, i, j, char) {
-  tomb[j - 1][i - 1] = char;
-  return tomb;
+function changeChar(state, i, j, char) {
+  state[j - 1][i - 1] = char;
+  return state;
 }
 
-function newState (matrix, lives) {
+function newState (state, lives) {
   switch (lives) {
     case 0:
-      console.log("died");
+      state = changeChar(state, 9, 6, '\\');
       break;
     case 1:
-      matrix = changeChar(matrix, 9, 6, '\\');
+      state = changeChar(state, 9, 6, '\\');
       break;
     case 2:
-      matrix = changeChar(matrix, 7, 6, '/');
+      state = changeChar(state, 7, 6, '/');
       break;
     case 3:
-      matrix = changeChar(matrix, 9, 4, '\\');
+      state = changeChar(state, 9, 4, '\\');
       break;
     case 4:
-      matrix = changeChar(matrix, 7, 4, '/');
+      state = changeChar(state, 7, 4, '/');
       break;
     case 5:
-      matrix = changeChar(matrix, 8, 5, '|');
+      state = changeChar(state, 8, 5, '|');
       break;
     case 6:
-      matrix = changeChar(matrix, 8, 4, '|');
+      state = changeChar(state, 8, 4, '|');
       break;
     case 7:
-      matrix = changeChar(matrix, 8, 3, 'o');
+      state = changeChar(state, 8, 3, 'o');
       break;
     case 8:
-      matrix = changeChar(matrix, 11, 3, ' ');
+      state = getInitState();
       break;
   }
-  return matrix;
+  return state;
 }
 
 function print(tomb) {
@@ -105,36 +107,11 @@ function print(tomb) {
   }
 }
 
-/*print(newState(picture, 8));
-print(newState(picture, 7));
-print(newState(picture, 6));
-print(newState(picture, 5));
-print(newState(picture, 4));
-print(newState(picture, 3));
-print(newState(picture, 2));
-print(newState(picture, 1));
-print(newState(picture, 0));
-*/
-
-/* function showLives(lives) {
-switch (lives) {
-  case 6: showMatrix(showPhase);
-    break;
-  case 5: 
-  changeChar(showPhase, 8, 3, 'o');
-    print(showPhase);
-    break;
-*/
-
-
 module.exports = {
   logo: showLogo,
   menu: showMenu,
   init: init,
-  state: newState,
-  picture: picture
+  newState: newState,
+  state: state,
+  initState: getInitState
 };
-
-
-
-// init state = show.matrix(showPhase);
