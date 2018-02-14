@@ -4,7 +4,7 @@ console.log('\033c');
 vagy
 console.log('\x1Bc');
 */
-function showLogo(a) {
+function showLogo (a) {
   console.log('\x1Bc');
   console.log('88');
   console.log('88');
@@ -26,7 +26,7 @@ function showLogo(a) {
 }
 module.exports = showLogo;
 
-function showMenu(a) {
+function showMenu (a) {
   console.log('You can select a menu with typing its number: \n');
   console.log('1: Start game');
   console.log('2: Modify category');
@@ -35,7 +35,7 @@ function showMenu(a) {
   console.log('5: Exit game');
 }
 
-function getInitState() {
+function getInitState () {
   return [[' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' '],
     [' ', ' ', '|', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' '],
     [' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
@@ -50,16 +50,16 @@ function getInitState() {
 var state = getInitState();
 
 function init (tomb) {
-  for (i = 0; i < picture.length; i++) {
+  for (let i = 0; i < picture.length; i++) {
     var row = '';
     for (var j = 0; j < picture[i].length; j++) {
-      row += picture[i][j]
+      row += picture[i][j];
     }
     console.log(row);
   }
 }
 
-function changeChar(state, i, j, char) {
+function changeChar (state, i, j, char) {
   state[j - 1][i - 1] = char;
   return state;
 }
@@ -82,13 +82,13 @@ function newState (state, lives) {
       state = changeChar(state, 7, 4, '/');
       break;
     case 5:
-      state = getInitState(state, 8, 5, '|');
+      state = changeChar(state, 8, 5, '|');
       break;
     case 6:
-      state = getInitState(state, 8, 4, '|');
+      state = changeChar(state, 8, 4, '|');
       break;
     case 7:
-      state = getInitState(state, 8, 3, 'o');
+      state = changeChar(state, 8, 3, 'o');
       break;
     case 8:
       state = getInitState();
@@ -97,7 +97,7 @@ function newState (state, lives) {
   return state;
 }
 
-function print(tomb) {
+function print (tomb) {
   for (i = 0; i < tomb.length; i++) {
     var row = '';
     for (var j = 0; j < tomb[i].length; j++) {
