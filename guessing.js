@@ -9,9 +9,6 @@ var checkChange = false;
 var wordArray = [];
 var goodLetters = [];
 var wrongLetters = [];
-<<<<<<< HEAD
-let expPoints = 0;
-=======
 
 function print(tomb) {
   for (i = 0; i < tomb.length; i++) {
@@ -23,7 +20,6 @@ function print(tomb) {
   }
 }
 
->>>>>>> d69f4362bd8d3f2232e7a74cfdd08ba06cc1e3ac
 function setArray (word) {
   for (var i = 0; i < word.length; i++) {
     if (word[i] === ' ') {
@@ -77,10 +73,6 @@ function gameLoop (word) {
   console.log('Please do not enter more than one letter at once.');
   console.log('The expression to be guessed:\n');
   setArray(word);
-<<<<<<< HEAD
-  //show.lives(lives);
-=======
->>>>>>> d69f4362bd8d3f2232e7a74cfdd08ba06cc1e3ac
   while (correctLetters < word.length - spaceCounter) {
     var letter = readlineSync.question('\nEnter letter:');
     console.log('\x1Bc');
@@ -93,21 +85,14 @@ function gameLoop (word) {
     console.log('Incorrect letters: ');
     logArray(wrongLetters);
     console.log('\nNumber of lives: ' + lives);
-<<<<<<< HEAD
-    //show.lives(lives);
-=======
     print(show.state(show.picture, lives));
->>>>>>> d69f4362bd8d3f2232e7a74cfdd08ba06cc1e3ac
     // console.log('Number of correct letters: ' + correctLetters);
     if (correctLetters === word.length - spaceCounter) {
       console.log('You have won.');
-      expPoints + 1;
-      enterMenu(playerName);
       break;
     }
     if (lives === 0) {
       console.log('YOU DIED');
-      enterMenu(playerName);
       break;
     }
   }
