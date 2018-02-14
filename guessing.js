@@ -119,6 +119,7 @@ function gameLoop (word) {
   wordArray = [];
   goodLetters = [];
   wrongLetters = [];
+  show.state = show.initState();
 }
 // gameLoop();
 
