@@ -3,6 +3,8 @@ const show = require('./graphics');
 const guess = require('./guessing');
 const select = require('./hangmantest');
 
+
+
 console.log('\x1Bc');
 let playerName = readlineSync.question('Kérlek, add meg a nevedet: ');
 enterMenu(playerName);
@@ -38,7 +40,7 @@ function mainMenu (playerName) {
          
       break;
     case '5':
-      console.log('Köszönjük, hogy velünk játszottál, várunk vissza');
+      console.log("Köszönjük, hogy velünk játszottál, várunk vissza");
     default:
       wrongMenu();
       break;
