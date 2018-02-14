@@ -2,13 +2,23 @@ const readlineSync = require('readline-sync');
 const show = require('./graphics');
 // var word = 'borsó főzelék';
 // var letter = readlineSync.question('Enter letter:');
-var lives = 6;
+var lives = 8;
 var correctLetters = 0;
 var spaceCounter = 0;
 var checkChange = false;
 var wordArray = [];
 var goodLetters = [];
 var wrongLetters = [];
+
+function print(tomb) {
+  for (i = 0; i < tomb.length; i++) {
+    var row = '';
+    for (var j = 0; j < tomb[i].length; j++) {
+      row += tomb[i][j]
+    }
+    console.log(row);
+  }
+}
 
 function setArray (word) {
   for (var i = 0; i < word.length; i++) {
@@ -63,7 +73,6 @@ function gameLoop (word) {
   console.log('Please do not enter more than one letter at once.');
   console.log('The expression to be guessed:\n');
   setArray(word);
-  show.lives(lives);
   while (correctLetters < word.length - spaceCounter) {
     var letter = readlineSync.question('\nEnter letter:');
     console.log('\x1Bc');
@@ -76,7 +85,7 @@ function gameLoop (word) {
     console.log('Incorrect letters: ');
     logArray(wrongLetters);
     console.log('\nNumber of lives: ' + lives);
-    show.lives(lives);
+    print(show.state(show.picture, lives));
     // console.log('Number of correct letters: ' + correctLetters);
     if (correctLetters === word.length - spaceCounter) {
       console.log('You have won.');
