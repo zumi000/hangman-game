@@ -1,37 +1,60 @@
 const readlineSync = require('readline-sync');
 
-let film = ['bones', 'anal intruder', 'psych', 'big bang theory', 'breaking bad', 'modern family', 'game of thrones', 'dexter'];
+let film = ['Anal Intruder', 'Big Bang Theory', 'Breaking Bad', 'Game of Thrones'];
+let harderFilm = ['Bones', 'Psych', 'Modern Family', 'Dexter'];
 let animals = ['great white shark', 'butterfly', 'grizzly bear', 'fallow deer'];
-let manufacturers = ['ford', 'mercedes benz', 'jaguar', 'caldwell vale', 'sichuan tengzhong', 'lamborghini', 'land rover'];
-let musicartists = ['jimi hendrix', 'elvis presley', 'david bowie', 'johnny cash', 'micheal jackson', 'billie holiday', 'amy winehouse'];
-let actors = ['jack nicholson', 'al pacino', 'dustin hoffman', 'meryl streep', 'julia roberts', 'nicole kidman'];
+let harderAnimals = ['great white shark', 'butterfly', 'grizzly bear', 'fallow deer'];
+let manufacturers = ['Ford', 'Mercedes Benz', 'Jaguar', 'Caldwell Vale', 'Sichuan Tengzhong', 'Lamborghini', 'Land Rover'];
+let harderManufacturers = ['Ford', 'Mercedes Benz', 'Jaguar', 'Caldwell Vale', 'Sichuan Tengzhong', 'Lamborghini', 'Land Rover'];
+let musicans = ['Jimi Hendrix', 'Elvis Presley', 'David Bowie', 'Johnny Cash', 'Micheal Jackson', 'Billie Holiday', 'Amy Winehouse'];
+let harderMusicans = ['Jimi Hendrix', 'Elvis Presley', 'David Bowie', 'Johnny Cash', 'Micheal Jackson', 'Billie Holiday', 'Amy Winehouse'];
+let actors = ['Jack Nicholson', 'Al Pacino', 'Dustin Hoffman', 'Meryl Streep', 'Julia Roberts', 'Nicole Kidman'];
+let harderActors = ['Jack Nicholson', 'Al Pacino', 'Dustin Hoffman', 'Meryl Streep', 'Julia Roberts', 'Nicole Kidman'];
 function categorySelect () {
   console.log('1. Film Titles');
   console.log('2. Animals');
   console.log('3. Car Manufacturers');
   console.log('4. Musicans');
   console.log('5. Actors');
-  var categoryMenu = readlineSync.question('Chose category: ');
+  var categoryMenu = readlineSync.question('Chose from category: ');
   switch (categoryMenu) {
     case '1':
       return film[Math.floor(Math.random() * film.length)];
-      break;
     case '2':
       return animals[Math.floor(Math.random() * animals.length)];
-      break;
     case '3':
       return manufacturers[Math.floor(Math.random() * manufacturers.length)];
-      break;
     case '4':
-      return musicartists[Math.floor(Math.random() * musicartists.length)];
-      break;
+      return musicans[Math.floor(Math.random() * musicans.length)];
     case '5':
       return actors[Math.floor(Math.random() * actors.length)];
+    default:
       break;
+  }
+}
+function harderCategorySelect () {
+  console.log('1. Film Titles');
+  console.log('2. Animals');
+  console.log('3. Car Manufacturers');
+  console.log('4. Musicans');
+  console.log('5. Actors');
+  var categoryMenu = readlineSync.question('Chose from advanced category: ');
+  switch (categoryMenu) {
+    case '1':
+      return harderFilm[Math.floor(Math.random() * harderFilm.length)];
+    case '2':
+      return harderAnimals[Math.floor(Math.random() * harderAnimals.length)];
+    case '3':
+      return harderManufacturers[Math.floor(Math.random() * harderManufacturers.length)];
+    case '4':
+      return harderMusicans[Math.floor(Math.random() * harderMusicans.length)];
+    case '5':
+      return harderActors[Math.floor(Math.random() * harderActors.length)];
     default:
       break;
   }
 }
 module.exports = {
-  categorySelect: categorySelect
+  categorySelect: categorySelect,
+  harderCategorySelect: harderCategorySelect
 };

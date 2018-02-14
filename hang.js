@@ -3,8 +3,6 @@ const show = require('./graphics');
 const guess = require('./guessing');
 const select = require('./hangmantest');
 
-
-
 console.log('\x1Bc');
 let playerName = readlineSync.question('Please, enter your name: ');
 enterMenu(playerName);
