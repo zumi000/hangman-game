@@ -4,7 +4,7 @@ const guess = require('./guessing');
 const select = require('./hangmantest');
 var word;
 var imHard = 0;
-var diffTrue = 0;
+var diffTrue;
 console.log('\x1Bc');
 let playerName = readlineSync.question('Please, enter your name: ');
 enterMenu(playerName);
