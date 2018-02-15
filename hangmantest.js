@@ -17,8 +17,7 @@ function categorySelect () {
     console.log('3. Car Manufacturers');
     console.log('4. Musicans');
     console.log('5. Actors');
-    console.log(imHard);
-    var categoryMenu = readlineSync.question('Chose from EASY categories: ');
+    var categoryMenu = readlineSync.keyIn('Chose from EASY categories: ', {limit: '$<1-5>'});
     switch (categoryMenu) {
       case '1':
         return film[Math.floor(Math.random() * film.length)];
@@ -30,7 +29,6 @@ function categorySelect () {
         return musicans[Math.floor(Math.random() * musicans.length)];
       case '5':
         return actors[Math.floor(Math.random() * actors.length)];
-      default:
     }
   } else {
     console.log('1. Film Titles');
@@ -38,8 +36,7 @@ function categorySelect () {
     console.log('3. Car Manufacturers');
     console.log('4. Musicans');
     console.log('5. Actors');
-    console.log(imHard);
-    var categoryMenu1 = readlineSync.question('Chose from ADVANCED categories: ');
+    var categoryMenu1 = readlineSync.keyIn('Chose from ADVANCED categories: ', {limit: '$<1-5>'});
     switch (categoryMenu1) {
       case '1':
         return harderFilm[Math.floor(Math.random() * harderFilm.length)];
@@ -51,7 +48,6 @@ function categorySelect () {
         return harderMusicans[Math.floor(Math.random() * harderMusicans.length)];
       case '5':
         return harderActors[Math.floor(Math.random() * harderActors.length)];
-      default:
     }
   }
 }
