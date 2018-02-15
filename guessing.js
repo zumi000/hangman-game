@@ -1,5 +1,6 @@
 const readlineSync = require('readline-sync');
 const show = require('./graphics');
+const fs = require('fs');
 var lives = 8;
 var correctLetters = 0;
 var spaceCounter = 0;
@@ -87,7 +88,7 @@ function exitNow () {
   }
 }
 
-function gameLoop (word) {
+function gameLoop (word, playerName) {
   console.log('The expression to be guessed:\n');
   setArray(word);
   console.log('\nCorrect letters: ');
@@ -111,6 +112,7 @@ function gameLoop (word) {
     print(show.newState(show.state, lives));
     if (correctLetters === word.length - spaceCounter) {
       console.log('You have won');
+      fs.appendFileSync('results.txt', playerName + ' ' + word + ' ' + word.length + '\n');
       break;
     }
     if (lives === 0) {

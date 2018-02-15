@@ -4,7 +4,12 @@ const guess = require('./guessing');
 const select = require('./hangmantest');
 var word;
 var imHard = 0;
-var diffTrue;
+var diffTrue = 0;
+var readline = require('readline');
+var fs = require('fs');
+var myInterface = readline.createInterface({
+  input: fs.createReadStream('results.txt')
+});
 console.log('\x1Bc');
 let playerName = readlineSync.question('Please, enter your name: ');
 enterMenu(playerName);
@@ -26,7 +31,7 @@ function mainMenu (playerName) {
     case '1':
       // start game
       console.log('\x1Bc');
-      guess.loop(word);
+      guess.loop(word, playerName);
       if (readlineSync.keyInYN('Do you want to start another game?')) {
         enterMenu(playerName);
       }
@@ -56,8 +61,14 @@ function mainMenu (playerName) {
       }
       break;
     case '4':
-      // scoreboard
-      break;
+      console.log('\x1Bc');
+      var lineno = 0;
+      myInterface.on('line', function (line) {
+        lineno++;
+        console.log(lineno + line);
+      });
+      readlineSync.question('Please hit enter to return');
+      return mainMenu(playerName);
     case '5':
       console.log('Thank you for choosing us');
       process.exit();
