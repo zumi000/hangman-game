@@ -5,11 +5,7 @@ const select = require('./hangmantest');
 var word;
 var imHard = 0;
 var diffTrue = 0;
-var readline = require('readline');
 var fs = require('fs');
-var myInterface = readline.createInterface({
-  input: fs.createReadStream('results.txt')
-});
 console.log('\x1Bc');
 let playerName = readlineSync.question('Please, enter your name: ');
 enterMenu(playerName);
@@ -62,12 +58,10 @@ function mainMenu (playerName) {
       break;
     case '4':
       console.log('\x1Bc');
-      var lineno = 0;
-      myInterface.on('line', function (line) {
-        lineno++;
-        console.log(lineno + line);
-      });
-      readlineSync.question('Please hit enter to return');
+      console.log('Username ' + 'Expression ' + 'Length');
+      var data = fs.readFileSync('results.txt');
+      console.log(data.toString());
+      readlineSync.keyIn('Please hit enter to return to the main menu.');
       return mainMenu(playerName);
     case '5':
       console.log('Thank you for choosing us');
