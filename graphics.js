@@ -35,6 +35,30 @@ function showMenu (a) {
   console.log('5: Exit game');
 }
 
+function die () {
+console.log('                           _,..__,');
+console.log('                       ,.\'\'\'      `\"-,_');
+console.log('                     ,\'                \'.');
+console.log('                   ,\'                    \'');
+console.log('                  /                       \\_');
+console.log('                 ;     -.                   `\\');
+console.log('                 |       |     _         _    .');
+console.log('                ;       ,\'  ,-\' `.     /\' `.  |');
+console.log('                |       \'  /  o   |   t  o  \\.\'    .,-.');
+console.log('                 |         |:    .\'   |:    .|    /    \\');
+console.log('                 ;         \\:.._./    \':_..:/ `. |      L');
+console.log('                  \  ,-\'           |\\_         `\\-     "\'-.');
+console.log('      ,-"\'``\'-,    `f              \'/`>                    `.');
+console.log('    ,\'        `L___.|              \'  `     . _,/            \\');
+console.log('    |                \\_          _   _    .-.]____,,r        |');
+console.log('    \\             ,. ___\"\"----./` \\,\' \',`\\\'  \\      \\       .\'');
+console.log('      `\'-\'|        \'`         `|   |   |  |  |       `\'--"\'`');
+console.log('          ,         |           L_.\'.__:__.-\'');
+console.log('           \\        /');
+console.log('            `\'-- \"\'`                               You died');
+console.log('\n');
+}
+
 function getInitState () {
   return [[' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' '],
     [' ', ' ', '|', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' '],
@@ -67,7 +91,7 @@ function changeChar (state, i, j, char) {
 function newState (state, lives) {
   switch (lives) {
     case 0:
-      state = changeChar(state, 9, 6, '\\');
+      die();
       break;
     case 1:
       state = changeChar(state, 9, 6, '\\');
@@ -113,5 +137,6 @@ module.exports = {
   init: init,
   newState: newState,
   state: state,
-  initState: getInitState
+  initState: getInitState,
+  die: die
 };
