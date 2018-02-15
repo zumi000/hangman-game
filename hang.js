@@ -26,7 +26,7 @@ function mainMenu (playerName) {
   show.logo();
   console.log('Welcome, ' + playerName + '!\n');
   show.menu();
-  var menu = readlineSync.question('Please select a menu: ');
+  var menu = readlineSync.keyIn('Please select a menu: ', { limit: '$<1-5>' });
   switch (menu) {
     case '1':
       // start game
@@ -72,17 +72,5 @@ function mainMenu (playerName) {
     case '5':
       console.log('Thank you for choosing us');
       process.exit();
-    default:
-      wrongMenu();
-      break;
   }
-}
-
-function wrongMenu () {
-  console.log('\x1Bc');
-  show.logo();
-  console.log('Welcome, ' + playerName + '!');
-  show.menu();
-  console.log('Wrong number');
-  mainMenu(playerName);
-}
+};
