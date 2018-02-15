@@ -4,7 +4,6 @@ const guess = require('./guessing');
 const select = require('./hangmantest');
 var word;
 var imHard = false;
-var diffTrue = 0;
 var fs = require('fs');
 console.log('\x1Bc');
 let playerName = readlineSync.question('Please, enter your name: ');
@@ -23,7 +22,7 @@ function selectChat (playerName) {
   show.logo();
   console.log('Welcome, ' + playerName + '!\n');
   console.log('Here you can modify the selected category\n');
-  if (imHard = true) {
+  if (imHard == true) {
     word = select.hard();
   } else {
     word = select.easy();
@@ -61,11 +60,12 @@ function mainMenu (playerName) {
       selectChat(playerName);
       break;
     case '4':
+      // scorecard
       console.log('\x1Bc');
       console.log('Username ' + 'Expression ' + 'Length');
       var data = fs.readFileSync('results.txt');
       console.log(data.toString());
-      readlineSync.keyIn('Please hit enter to return to the main menu.');
+      readlineSync.keyIn('Please hit a key to return to the main menu.');
       return mainMenu(playerName);
     case '5':
       console.log('Thank you for choosing us');
