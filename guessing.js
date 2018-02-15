@@ -9,6 +9,7 @@ var wordArray = [];
 var goodLetters = [];
 var wrongLetters = [];
 
+// Prints a 2D array
 function print (array) {
   for (var i = 0; i < array.length; i++) {
     var row = '';
@@ -19,6 +20,7 @@ function print (array) {
   }
 }
 
+// Creates an array containing underscores the length of the expression
 function setArray (word) {
   for (var i = 0; i < word.length; i++) {
     if (word[i] === ' ') {
@@ -31,6 +33,7 @@ function setArray (word) {
   logArray(wordArray);
 }
 
+// Checks if a character is in an array
 function checkRepetition (array, letter) {
   var rep = false;
   for (var i = 0; i < array.length; i++) {
@@ -41,6 +44,7 @@ function checkRepetition (array, letter) {
   return rep;
 }
 
+// Determines if a character is uppercase
 function isUpperCase (char) {
   if (char === char.toUpperCase()) {
     return true;
@@ -49,6 +53,7 @@ function isUpperCase (char) {
   }
 }
 
+// Checks whether a letter has been used or not
 function check (word, letter) {
   if (!checkRepetition(goodLetters, letter) && !checkRepetition(wrongLetters, letter)) {
     for (var i = 0; i < word.length; i++) {
@@ -72,6 +77,7 @@ function check (word, letter) {
   }
 }
 
+// Prints an array
 function logArray (array) {
   var row = ' ';
   for (var j = 0; j < array.length; j++) {
@@ -80,6 +86,7 @@ function logArray (array) {
   console.log(row);
 }
 
+// Adds the ability to exit the game during guessing
 function exitNow () {
   for (var l = 0; l < wrongLetters.length; l++) {
     if (wrongLetters[l] === '1') {
@@ -88,6 +95,7 @@ function exitNow () {
   }
 }
 
+// The logic behind the game itself
 function gameLoop (word, playerName) {
   console.log('Please do not enter more than one letter at once.\nPress 1 to exit game');
   console.log('The expression to be guessed:\n');
@@ -114,7 +122,6 @@ function gameLoop (word, playerName) {
     if (lives !== 0) {
       print(show.newState(show.state, lives));
     }
-    // console.log('Number of correct letters: ' + correctLetters);
     if (correctLetters === word.length - spaceCounter) {
       console.log('You have won');
       fs.appendFileSync('results.txt', playerName + ' ' + word + ' ' + word.length + '\n');
@@ -125,6 +132,7 @@ function gameLoop (word, playerName) {
       break;
     }
   }
+  // Resets everything after a game is finished
   lives = 8;
   correctLetters = 0;
   spaceCounter = 0;
@@ -134,8 +142,6 @@ function gameLoop (word, playerName) {
   wrongLetters = [];
   show.state = show.initState();
 }
-
-// gameLoop();
 
 module.exports = {
   loop: gameLoop

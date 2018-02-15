@@ -73,7 +73,8 @@ function getInitState () {
 }
 var state = getInitState();
 
-/*function init (tomb) {
+/*
+function init (tomb) {
   for (let i = 0; i < picture.length; i++) {
     var row = '';
     for (var j = 0; j < picture[i].length; j++) {
@@ -81,7 +82,8 @@ var state = getInitState();
     }
     console.log(row);
   }
-}*/
+}
+*/
 
 function changeChar (state, i, j, char) {
   state[j - 1][i - 1] = char;
@@ -121,7 +123,8 @@ function newState (state, lives) {
   return state;
 }
 
-/*function print (tomb) {
+/*
+function print (tomb) {
   for (i = 0; i < tomb.length; i++) {
     var row = '';
     for (var j = 0; j < tomb[i].length; j++) {
@@ -129,12 +132,12 @@ function newState (state, lives) {
     }
     console.log(row);
   }
-}*/
+}
+*/
 
 module.exports = {
   logo: showLogo,
   menu: showMenu,
-  //init: init,
   newState: newState,
   state: state,
   initState: getInitState,
