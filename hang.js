@@ -60,11 +60,12 @@ function mainMenu (playerName) {
       selectChat(playerName);
       break;
     case '4':
+      // scorecard
       console.log('\x1Bc');
       console.log('Username ' + 'Expression ' + 'Length');
       var data = fs.readFileSync('results.txt');
       console.log(data.toString());
-      readlineSync.keyIn('Please press any key to return to the main menu.');
+      readlineSync.keyIn('Please hit a key to return to the main menu.');
       return mainMenu(playerName);
     case '5':
       console.log('Thank you for choosing us');
