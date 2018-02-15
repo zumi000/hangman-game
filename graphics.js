@@ -36,27 +36,27 @@ function showMenu (a) {
 }
 
 function die () {
-console.log('                           _,..__,');
-console.log('                       ,.\'\'\'      `\"-,_');
-console.log('                     ,\'                \'.');
-console.log('                   ,\'                    \'');
-console.log('                  /                       \\_');
-console.log('                 ;     -.                   `\\');
-console.log('                 |       |     _         _    .');
-console.log('                ;       ,\'  ,-\' `.     /\' `.  |');
-console.log('                |       \'  /  o   |   t  o  \\.\'    .,-.');
-console.log('                 |         |:    .\'   |:    .|    /    \\');
-console.log('                 ;         \\:.._./    \':_..:/ `. |      L');
-console.log('                  \  ,-\'           |\\_         `\\-     "\'-.');
-console.log('      ,-"\'``\'-,    `f              \'/`>                    `.');
-console.log('    ,\'        `L___.|              \'  `     . _,/            \\');
-console.log('    |                \\_          _   _    .-.]____,,r        |');
-console.log('    \\             ,. ___\"\"----./` \\,\' \',`\\\'  \\      \\       .\'');
-console.log('      `\'-\'|        \'`         `|   |   |  |  |       `\'--"\'`');
-console.log('          ,         |           L_.\'.__:__.-\'');
-console.log('           \\        /');
-console.log('            `\'-- \"\'`                               You died');
-console.log('\n');
+  console.log('                           _,..__,');
+  console.log('                       ,.\'\'\'      `\"-,_');
+  console.log('                     ,\'                \'.');
+  console.log('                   ,\'                    \'');
+  console.log('                  /                       \\_');
+  console.log('                 ;     -.                   `\\');
+  console.log('                 |       |     _         _    .');
+  console.log('                ;       ,\'  ,-\' `.     /\' `.  |');
+  console.log('                |       \'  /  o   |   t  o  \\.\'    .,-.');
+  console.log('                 |         |:    .\'   |:    .|    /    \\');
+  console.log('                 ;         \\:.._./    \':_..:/ `. |      L');
+  console.log('                  \  ,-\'           |\\_         `\\-     "\'-.');
+  console.log('      ,-"\'``\'-,    `f              \'/`>                    `.');
+  console.log('    ,\'        `L___.|              \'  `     . _,/            \\');
+  console.log('    |                \\_          _   _    .-.]____,,r        |');
+  console.log('    \\             ,. ___\"\"----./` \\,\' \',`\\\'  \\      \\       .\'');
+  console.log('      `\'-\'|        \'`         `|   |   |  |  |       `\'--"\'`');
+  console.log('          ,         |           L_.\'.__:__.-\'');
+  console.log('           \\        /');
+  console.log('            `\'-- \"\'`                               You died');
+  console.log('\n');
 }
 
 function getInitState () {
@@ -73,7 +73,7 @@ function getInitState () {
 }
 var state = getInitState();
 
-function init (tomb) {
+/*function init (tomb) {
   for (let i = 0; i < picture.length; i++) {
     var row = '';
     for (var j = 0; j < picture[i].length; j++) {
@@ -81,7 +81,7 @@ function init (tomb) {
     }
     console.log(row);
   }
-}
+}*/
 
 function changeChar (state, i, j, char) {
   state[j - 1][i - 1] = char;
@@ -121,7 +121,7 @@ function newState (state, lives) {
   return state;
 }
 
-function print (tomb) {
+/*function print (tomb) {
   for (i = 0; i < tomb.length; i++) {
     var row = '';
     for (var j = 0; j < tomb[i].length; j++) {
@@ -129,12 +129,12 @@ function print (tomb) {
     }
     console.log(row);
   }
-}
+}*/
 
 module.exports = {
   logo: showLogo,
   menu: showMenu,
-  init: init,
+  //init: init,
   newState: newState,
   state: state,
   initState: getInitState,

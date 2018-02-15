@@ -9,53 +9,49 @@ let musicans = ['Jimi Hendrix', 'Elvis Presley', 'David Bowie', 'Johnny Cash', '
 let harderMusicans = ['Stu Larsen', 'Amos Lee', 'Ashleigh Mannix', 'Bob Evans', 'Kate Miller', 'Lisa Tingle', 'Maarko Saaresto'];
 let actors = ['Jack Nicholson', 'Al Pacino', 'Dustin Hoffman', 'Meryl Streep', 'Julia Roberts', 'Nicole Kidman', 'Marlon Brando'];
 let harderActors = ['Domhnall Gleeson', 'Liev Schreiber', 'Peter Sarsgaard', 'Michael Stuhlbarg', 'Brendan Gleeson', 'Elijah Wood', 'Andy Serkis'];
-let imHard = 0;
-function categorySelect () {
-  if (imHard === 0) {
-    console.log('1. Film Titles');
-    console.log('2. Animals');
-    console.log('3. Car Manufacturers');
-    console.log('4. Musicans');
-    console.log('5. Actors');
-    console.log(imHard);
-    var categoryMenu = readlineSync.question('Chose from EASY categories: ');
-    switch (categoryMenu) {
-      case '1':
-        return film[Math.floor(Math.random() * film.length)];
-      case '2':
-        return animals[Math.floor(Math.random() * animals.length)];
-      case '3':
-        return manufacturers[Math.floor(Math.random() * manufacturers.length)];
-      case '4':
-        return musicans[Math.floor(Math.random() * musicans.length)];
-      case '5':
-        return actors[Math.floor(Math.random() * actors.length)];
-      default:
-    }
-  } else {
-    console.log('1. Film Titles');
-    console.log('2. Animals');
-    console.log('3. Car Manufacturers');
-    console.log('4. Musicans');
-    console.log('5. Actors');
-    console.log(imHard);
-    var categoryMenu1 = readlineSync.question('Chose from ADVANCED categories: ');
-    switch (categoryMenu1) {
-      case '1':
-        return harderFilm[Math.floor(Math.random() * harderFilm.length)];
-      case '2':
-        return harderAnimals[Math.floor(Math.random() * harderAnimals.length)];
-      case '3':
-        return harderManufacturers[Math.floor(Math.random() * harderManufacturers.length)];
-      case '4':
-        return harderMusicans[Math.floor(Math.random() * harderMusicans.length)];
-      case '5':
-        return harderActors[Math.floor(Math.random() * harderActors.length)];
-      default:
-    }
+function easySelect () {
+  console.log('1. Film Titles');
+  console.log('2. Animals');
+  console.log('3. Car Manufacturers');
+  console.log('4. Musicans');
+  console.log('5. Actors');
+  var categoryMenu = readlineSync.keyIn('Chose from EASY categories: ', {limit: '$<1-5>'});
+  switch (categoryMenu) {
+    case '1':
+      return film[Math.floor(Math.random() * film.length)];
+    case '2':
+      return animals[Math.floor(Math.random() * animals.length)];
+    case '3':
+      return manufacturers[Math.floor(Math.random() * manufacturers.length)];
+    case '4':
+      return musicans[Math.floor(Math.random() * musicans.length)];
+    case '5':
+      return actors[Math.floor(Math.random() * actors.length)];
+  }
+}
+
+function hardSelect () {
+  console.log('1. Film Titles');
+  console.log('2. Animals');
+  console.log('3. Car Manufacturers');
+  console.log('4. Musicans');
+  console.log('5. Actors');
+  var categoryMenu1 = readlineSync.keyIn('Chose from ADVANCED categories: ', {limit: '$<1-5>'});
+  switch (categoryMenu1) {
+    case '1':
+      return harderFilm[Math.floor(Math.random() * harderFilm.length)];
+    case '2':
+      return harderAnimals[Math.floor(Math.random() * harderAnimals.length)];
+    case '3':
+      return harderManufacturers[Math.floor(Math.random() * harderManufacturers.length)];
+    case '4':
+      return harderMusicans[Math.floor(Math.random() * harderMusicans.length)];
+    case '5':
+      return harderActors[Math.floor(Math.random() * harderActors.length)];
   }
 }
 
 module.exports = {
-  categorySelect: categorySelect
+  easy: easySelect,
+  hard: hardSelect
 };

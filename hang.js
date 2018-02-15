@@ -3,7 +3,7 @@ const show = require('./graphics');
 const guess = require('./guessing');
 const select = require('./hangmantest');
 var word;
-var imHard = 0;
+var imHard = false;
 var diffTrue = 0;
 var fs = require('fs');
 console.log('\x1Bc');
@@ -14,7 +14,20 @@ function enterMenu (playerName) {
   show.logo();
   console.log('Welcome, ' + playerName + '!\n');
   console.log('First you must to select category\n');
-  word = select.categorySelect();
+  word = select.easy();
+  return mainMenu(playerName);
+}
+
+function selectChat (playerName) {
+  console.log('\x1Bc');
+  show.logo();
+  console.log('Welcome, ' + playerName + '!\n');
+  console.log('Here you can modify the selected category\n');
+  if (imHard = true) {
+    word = select.hard();
+  } else {
+    word = select.easy();
+  }
   return mainMenu(playerName);
 }
 
@@ -22,39 +35,30 @@ function mainMenu (playerName) {
   show.logo();
   console.log('Welcome, ' + playerName + '!\n');
   show.menu();
-  var menu = readlineSync.question('Please select a menu: ');
+  var menu = readlineSync.keyIn('Please select a menu: ', { limit: '$<1-5>' });
   switch (menu) {
     case '1':
       // start game
       console.log('\x1Bc');
       guess.loop(word, playerName);
-      if (readlineSync.keyInYN('Do you want to start another game?')) {
-        enterMenu(playerName);
+      var newGame = readlineSync.keyIn('Do you want to start another game? [y/n]', {limit: '$<ynYN>'});
+      switch (newGame) {
+        case 'y': case 'Y':
+          enterMenu(playerName);
+          break;
+        case 'n': case 'N':
+          console.log('Thank you for choosing us');
+          process.exit();
       }
-      console.log('Thank you for choosing us');
-      process.exit();
+      break;
     case '2':
       // modify category
-      console.log('\x1Bc');
-      show.logo();
-      console.log('Welcome, ' + playerName + '!\n');
-      console.log('Here you can modify the selected category\n');
-      word = select.categorySelect(imHard);
-      return mainMenu(playerName);
+      selectChat(playerName);
+      break;
     case '3':
       // modify difficulty
-      console.log('\x1Bc');
-      show.logo();
-      console.log('1. for Easy');
-      console.log('2. for Advanced');
-      diffTrue = readlineSync.question('Please select difficulty level: ');
-      if (diffTrue === 1) {
-        imHard = 0;
-        mainMenu(playerName);
-      } else {
-        imHard = 1;
-        mainMenu(playerName);
-      }
+      imHard = !imHard;
+      selectChat(playerName);
       break;
     case '4':
       console.log('\x1Bc');
@@ -66,17 +70,5 @@ function mainMenu (playerName) {
     case '5':
       console.log('Thank you for choosing us');
       process.exit();
-    default:
-      wrongMenu();
-      break;
   }
-}
-
-function wrongMenu () {
-  console.log('\x1Bc');
-  show.logo();
-  console.log('Welcome, ' + playerName + '!');
-  show.menu();
-  console.log('Wrong number');
-  mainMenu(playerName);
 }
