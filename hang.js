@@ -61,7 +61,7 @@ function mainMenu (playerName) {
       console.log('Username ' + 'Expression ' + 'Length');
       var data = fs.readFileSync('results.txt');
       console.log(data.toString());
-      readlineSync.keyIn('Please hit enter to return to the main menu.');
+      readlineSync.keyIn('Please press any key to return to the main menu.');
       return mainMenu(playerName);
     case '5':
       console.log('Thank you for choosing us');
