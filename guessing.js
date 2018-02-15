@@ -88,7 +88,7 @@ function exitNow () {
   }
 }
 
-function gameLoop (word) {
+function gameLoop (word, playerName) {
   console.log('Please do not enter more than one letter at once.\nPress 1 to exit game');
   console.log('The expression to be guessed:\n');
   setArray(word);
