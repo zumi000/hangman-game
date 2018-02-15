@@ -93,7 +93,7 @@ function gameLoop (word) {
   setArray(word);
   console.log('\nCorrect letters: ');
   logArray(goodLetters);
-  console.log('Incorrect letters: ');
+  console.log('\nIncorrect letters: ');
   console.log('\nNumber of lives: ' + lives);
   print(show.newState(show.state, lives));
   logArray(wrongLetters);
