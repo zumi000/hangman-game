@@ -79,6 +79,14 @@ function logArray (array) {
   console.log(row);
 }
 
+function exitNow () {
+  for (var l = 0; l < wrongLetters.length; l++) {
+    if (wrongLetters[l] === '1') {
+      process.exit();
+    }
+  }
+}
+
 function gameLoop (word) {
   console.log('Please do not enter more than one letter at once.');
   console.log('The expression to be guessed:\n');
@@ -90,7 +98,7 @@ function gameLoop (word) {
   print(show.newState(show.state, lives));
   logArray(wrongLetters);
   while (correctLetters < word.length - spaceCounter) {
-    var letter = readlineSync.keyIn('\nEnter letter: ', { limit: '$<a-z>' });
+    var letter = readlineSync.keyIn('\nEnter letter: ', { limit: '$<a-z><1>' });
     console.log('\x1Bc');
     console.log('Please do not enter more than one letter at once.');
     check(word, letter);
@@ -100,6 +108,7 @@ function gameLoop (word) {
     logArray(goodLetters);
     console.log('Incorrect letters: ');
     logArray(wrongLetters);
+    exitNow();
     console.log('\nNumber of lives: ' + lives);
     print(show.newState(show.state, lives));
     // console.log('Number of correct letters: ' + correctLetters);
