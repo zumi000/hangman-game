@@ -124,7 +124,7 @@ function gameLoop (word, playerName) {
     }
     if (correctLetters === word.length - spaceCounter) {
       console.log('You have won');
-      fs.appendFileSync('results.txt', playerName + ' ' + word + ' ' + word.length + '\n');
+      fs.appendFileSync('results.txt', playerName + ' ' + word + ' ' + correctLetters + '\n');
       break;
     }
     if (lives === 0) {
